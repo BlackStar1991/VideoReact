@@ -1,13 +1,227 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 0;
+    height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+    background: none;
+    cursor: pointer;
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.video_container {
+    display: flex;
+    width: 100%;
+    max-width: 49vw;
+    margin-right: 1vw;
+  height: 100vh;
+}
+
+.video_block {
+    flex: 1;
+    object-fit: cover;
+    height: 100%;
+    max-height: 100vh;
+    max-width: 100%;
+}
+
+
+.bl_full {
+    width: 49vw;
+    margin-right: 1vw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bl_title {
+    margin: 0.5vh 0;
+    color: #e61e26;
+    font-family: Spaceland-Ten, sans-serif;
+    font-weight: 700;
+    font-size: 10vh;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-text-stroke: 1px #fff;
+}
+
+.bl_paragraf {
+   display: block;
+    font-size: 3vh;
+    padding: 0.5vh 1vh;
+    line-height: 1.2;
+}
+
+.bl_list {
+    margin: 2.5vh 1vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button_element {
+    border: 1px solid #a5a5a5;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .3s;
+    color: #fff;
+    width: 30%;
+    padding: 10px;
+}
+
+.button_element.active {
+    border-color: #e61e26;
+}
+
+.button_element:hover {
+    box-shadow: 0 0 15px #fff;
+}
+
+.button_element img {
+    aspect-ratio: 3/2;
+    /*object-fit: cover;*/
+}
+
+.bl_under {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bl_descr {
+    margin: 0 0 0.5vh;
+}
+
+.bl_descr__item {
+    font-size: 3vh;
+    margin: 0.5vh 1vh;
+    padding: 0;
+}
+
+a {
+    margin-right: 20px;
+    position: relative;
+  z-index: 999;
+}
+
+.bl_support{
+  position: relative;
+  margin:0 0.5vh;
+  color: #e61e26;
+  font-family: Spaceland-Ten, sans-serif;
+  font-weight: 700;
+  font-size: 4vh;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-top: #e61e26 2px solid;
+  border-bottom: #e61e26 2px solid;
+  z-index: 1;
+}
+
+
+@keyframes move {
+  0%{
+    transform: translateX(0);
+  }
+  80%, 100%{
+    transform: translateX(100%);
+  }
+}
+
+
+.bl_support span{
+  position: relative;
+  z-index: 4;
+}
+.decor{
+  position: absolute;
+  top: 0;
+  right: calc(-2vh - 5px);
+  width: calc(4vh + 10px);
+  height: calc(4vh + 10px);
+
+  transform: rotate(45deg);
+  border-top: #e61e26 2px solid;
+  border-right: #e61e26 2px solid;
+
+}
+@media (min-width: 992px) {
+  .bl_support:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    background-color: #000;
+    z-index: 2;
+    width: calc(100% + 4vh);
+    height: calc(100% + 16px);
+    transform: translateX(0);
+    animation: move 4s infinite ease-in;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+    .bl_list,
+    .bl_descr {
+        display: none;
+    }
+
+    .field {
+        flex-direction: column;
+    }
+
+    .video_block {
+        max-width: initial;
+    }
+
+    .video_container {
+        max-width: initial;
+        margin-right: 0;
+    }
+
+    .bl_full {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        margin: 0;
+    }
+
+    .bl_title {
+        margin-bottom: auto;
+    }
+
+    .bl_paragraf {
+        background: rgba(0, 0, 0, 0.5);
+    }
+  .bl_support span{
+    -webkit-text-stroke: .5px #fff;
+  }
+
+  .bl_under{
+    justify-content: space-around;
+  }
 }
